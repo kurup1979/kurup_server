@@ -21,7 +21,8 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 const routes = require('./routes')
-const PORT = parseInt(process.env.PORT) || 8080;
+//const PORT = parseInt(process.env.PORT) || 8080;
+const PORT = 3000;
 const app = express()
 global.socket = require('./socket/socket');
 //const redis = require('./socket/redis')
@@ -44,7 +45,7 @@ io.attach(server, {
     cookie: false
   });
   server.listen(PORT, () => {
-    console.log(`Server Started`)
+    console.log(`Server Started`, PORT)
   })
 
 module.exports = server;
